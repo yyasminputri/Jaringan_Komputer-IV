@@ -1,885 +1,907 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/1zoHyFGp)
-| Name           | NRP        | Kelas     |
+| Name           | NRP        | Class     |
 | ---            | ---        | ----------|
-| Rafli Raihan Pramudya | 5025221266 | Jaringan Komputer A |
-| Yasmin Putri Sujono | 5025221273 | Jaringan Komputer A |
-
-## Put your topology config image here!
-<img width="880" alt="Screenshot 2024-10-23 at 01 44 06" src="https://github.com/user-attachments/assets/7fff8f4b-bec5-4813-afdc-ac57dbaf7596">
+| Yasmin Putri Sujono | 5025221273 | Jaringan Komputer (A) |
 
 <br>
 
-> Template testing report: https://docs.google.com/document/d/17T0fsnh_4zZTrG-lELDJ88intrc9mkwCzZ_s-23JLCc/edit?usp=sharing
+<b> Letakkan link excel hasil perhitungan di sini </b>
+<br>
+<b> _Place the excel calculation results link here_ </b>
+https://docs.google.com/spreadsheets/d/1g4KVZQW-UkkqUzavVGY4KYOOg8FTgLHtGy_W88vu9M8/edit?gid=671499381#gid=671499381
 
-## Put your testing report here! 
-> The report is sent in PDF format, uploaded to Drive, and set to public view.
 
-`put the link here`
 
-## Soal 0
+# Laporan Praktikum Modul 4 Non Terraform
 
-> Pada perlombaan akhir tahun kali ini, semua worker dan client ikut serta di dalamnya sebagai perwakilan dari masing-masing asrama. Persiapan yang dilakukan untuk perlombaan ini adalah dengan setup semua network configuration yang sesuai dengan tabel peran diatas. Khusus untuk client menggunakan konfigurasi dari DHCP Server.
+## Prefix IP
+Letakkan prefix IP yang digunakan di bawah:
 
-**Answer**
-
-- Dumbledore:
-
-  ```
-    auto eth0
-    iface eth0 inet dhcp
-
-    auto eth1
-    iface eth1 inet static
-	  address  10.4.1.1
-	  netmask 255.255.255.0
-
-    auto eth2
-    iface eth2 inet static
-	  address 10.4.2.1
-  	netmask 255.255.255.0
-
-    auto eth3
-    iface eth3 inet static
-	  address 10.4.3.1
-	  netmask 255.255.255.0
-
-    auto eth4
-    iface eth4 inet static
-	  address 10.4.4.1
-	  netmask 255.255.255.0
-
-    auto eth5
-    iface eth5 inet static
-	  address 10.4.5.1
-	  netmask 255.255.255.0
-
-    auto eth6
-    iface eth6 inet static
-	  address 10.4.6.1
-	  netmask 255.255.255.0
-  
-    up iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.4.0.0/16
-  ```
-
-- SeverusSnape:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.3.2
-	netmask 255.255.255.0
-	gateway 10.4.3.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- McGonagall:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.3.3
-	netmask 255.255.255.0
-	gateway 10.4.3.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- Hagrid:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.4.2
-	netmask 255.255.255.0
-	gateway 10.4.4.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- Voldemort:
-
-  ```
-   auto eth0
-  iface eth0 inet static
-	address 10.4.4.3
-	netmask 255.255.255.0
-	gateway 10.4.4.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- Dementor:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.4.4
-	netmask 255.255.255.0
-	gateway 10.4.4.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- HarryPotter:
-
-  ```
-    auto eth0
-    iface eth0 inet static
-  	address 10.4.1.2
-  	netmask 255.255.255.0
-  	gateway 10.4.1.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- RonWeasley:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.1.3
-	netmask 255.255.255.0
-	gateway 10.4.1.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- HermioneGranger:
-
-  ```
-    auto eth0
-    iface eth0 inet static
-  	address 10.4.1.4	
-    netmask 255.255.255.0
-	  gateway 10.4.1.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- LunaLovegood:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.6.4
-	netmask 255.255.255.0
-	gateway 10.4.6.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- FiliusFlitwick:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.6.3
-	netmask 255.255.255.0
-	gateway 10.4.6.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- ChoChang:
-
-  ```
-  auto eth0
-  iface eth0 inet static
-	address 10.4.6.2
-	netmask 255.255.255.0
-	gateway 10.4.6.1
-
-  up echo nameserver 192.168.122.1 > /etc/resolv.conf
-  ```
-
-- DracoMalfoy:
-
-  ```
-  auto eth0 
-  iface eth0 inet dhcp
-  ```
-
-- AstoriaGreengrass:
-
-  ```
-  auto eth0 
-  iface eth0 inet dhcp
-  ```
-
-- SusanBones:
-
-  ```
-  auto eth0 
-  iface eth0 inet dhcp
-  ```
-
-- HannahAbbott:
-
-  ```
-  auto eth0 
-  iface eth0 inet dhcp
-  ```
-
-## Soal 1
-
-> Melakukan registrasi subdomain untuk PHP worker bernama gryffindor.hogwarts.A03.com yang mengarah ke alamat IP load balancer Voldemort dan untuk laravel worker bernama ravenclaw.hogwarts.A03.com yang mengarah ke alamat IP load balancer Dementor. Seluruh domain ini berkumpul dalam suatu ruang atau folder bernama hogwarts
-
-**Answer:**
-
-- Screenshot 
-<img width="652" alt="Screenshot 2024-10-23 at 02 08 31" src="https://github.com/user-attachments/assets/75407503-3444-43aa-aff7-bb4dea02b41b">
-
-- Configuration
-
-1. Pertama, menentukan nameserver dan memperbarui paket dan menginstal BIND9
+_Put IP prefix used below:_
 ```
-echo nameserver 192.168.122.1 > /etc/resolv.conf
-apt-get update
-apt-get install bind9 -y
+10.4.0.0
 ```
 
-2. Menkonfigurasi Zona DNS dengan membuat file konfigurasi lokal untuk zona gryffindor.hogwarts.A03.com dan ravenclaw.hogwarts.A03.com di /etc/bind/named.conf.local.
-```
-cat > /etc/bind/named.conf.local << EOF
-zone "gryffindor.hogwarts.A03.com" {
-        type master;
-        file "/etc/bind/hogwarts/gryffindor.hogwarts.A03.com";
-};
+## Topology
 
-zone "ravenclaw.hogwarts.A03.com" {
-        type master;
-        file "/etc/bind/hogwarts/ravenclaw.hogwarts.A03.com";
-};
-EOF
-```
+- GNS3 <br>
+<img width="784" alt="Screenshot 2024-11-18 at 20 06 50" src="https://github.com/user-attachments/assets/bb06ef74-1254-466c-b6ed-a80b236dacac">
 
-3. Membuat direktori untuk zona : `mkdir /etc/bind/hogwarts`
-4. Menyalin dan Menkonfigurasi file zona untuk gryffindor.hogwarts.A03.com. dan ravenclaw.hogwarts.A03.com.
-```
-cp /etc/bind/db.local /etc/bind/hogwarts/gryffindor.hogwarts.A03.com
-cat > /etc/bind/hogwarts/gryffindor.hogwarts.A03.com << EOF
-
-;
-; BIND data file for local loopback interface
-;
-$TTL    604800
-@       IN      SOA     gryffindor.hogwarts.A03.com. root.gryffindor.hogwarts.A03.com. (
-                        2024111301      ; Serial
-                        604800          ; Refresh
-                        86400           ; Retry
-                        2419200         ; Expire
-                        604800 )        ; Negative Cache TTL
-;
-@               IN      NS      gryffindor.hogwarts.A03.com.
-@               IN      A       10.4.4.3 ; IP Load Balancer Voldemort
-www     IN      CNAME   gryffindor.hogwarts.A03.com
-EOF
-
-cp /etc/bind/db.local /etc/bind/hogwarts/ravenclaw.hogwarts.A03.com
-cat > /etc/bind/hogwarts/ravenclaw.hogwarts.A03.com << EOF
-
-;
-; BIND data file for local loopback interface
-;
-$TTL    604800
-@       IN      SOA     ravenclaw.hogwarts.A03.com. root.ravenclaw.hogwarts.A03.com. (
-                        2024111301      ; Serial
-                        604800          ; Refresh
-                        86400           ; Retry
-                        2419200         ; Expire
-                        604800 )        ; Negative Cache TTL
-;
-@               IN      NS      ravenclaw.hogwarts.A03.com.
-@               IN      A       10.4.4.4 ; IP Load Balancer Dementor
-www     IN      CNAME   ravenclaw.hogwarts.A03.com
-EOF 
-```
-5. Mengatur Opsi BIND dengan mengedit file /etc/bind/named.conf.options untuk mengatur opsi seperti direktori cache dan forwarders.
-```
-cat > /etc/bind/named.conf.options << EOF
-options {
-        directory "/var/cache/bind";
-
-        forwarders {
-                192.168.122.1;
-        };
-
-        dnssec-validation auto;
-        allow-query{any;};
-        auth-nxdomain no;    # conform to RFC1035
-        listen-on-v6 { any; };
-};
-EOF
-```
-6. Restart Layanan BIND `service named restart`
+- CPT <br>
+  ![image](https://github.com/user-attachments/assets/8d79b54a-e5d0-40c8-96a7-f1253e747ee9)
 
 <br>
 
-## Soal 2 & 4
+## Routing
 
-> Memberikan ketentuan khusus untuk DracoMalfoy dan AstoriaGreengrass yang mendapat range IP dari 10.4.2.64 - 10.4.2.65 dan 10.4.2.100 - 10.4.2.101
+- Routing table
+  - GNS3
+  <img width="677" alt="Screenshot 2024-11-18 at 20 06 11" src="https://github.com/user-attachments/assets/8e769742-633b-450e-856c-6cc2546749e0">
 
-> Selain itu, untuk HannahAbbott dan SusanBones mendapat range IP dari 10.4.5.50 - 10.4.5.51 dan 10.4.5.155 - 10.4.5.156.
+  - CPT <br> 
+  ![image](https://github.com/user-attachments/assets/fc53e282-8479-40cf-a420-552e4cb18cd1)
 
-**Answer:**
+- Route visualization in topology
+  - GNS3 <br> 
+<img width="698" alt="Screenshot 2024-11-18 at 21 01 29" src="https://github.com/user-attachments/assets/7d8e0732-3257-4f90-a447-95d999dddaed">
 
-- Screenshot <br>
-DracoMalfoy mendapatkan IP '10.4.2.65' <br>
-![WhatsApp Image 2024-10-23 at 18 04 47](https://github.com/user-attachments/assets/bd57b3c9-c25e-4b09-b5c1-85dd48c40c1f)
-<br>
-HannahAbbott mendapatkan IP '10.4.5.51' <br> 
-![WhatsApp Image 2024-10-23 at 18 06 01](https://github.com/user-attachments/assets/ed20f684-7bf5-4f0e-ac5f-65a40c7f0640) <br>
+  - CPT
+<br> (https://www.canva.com/design/DAGWnS4IQzg/srsfCG1Adj9fTFy8Ne3eyg/edit?utm_content=DAGWnS4IQzg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) <br>
+  ![image](https://github.com/user-attachments/assets/2a4c063d-fa27-4166-afad-bd76a0040d89)
 
-- Configuration & Explanation
-  1. Pada **DUMBLEDORE** Sebagai Router (DHCP Relay),
-  - Pertama, menentukan nameserver dan memperbarui paket dan menginstal paket DHCP relay:
-```
-echo nameserver 192.168.122.1 > /etc/resolv.conf
-apt-get update
-apt-get install isc-dhcp-relay -y
-service isc-dhcp-relay start
-```
-  - Mengedit pada file konfigurasi di bagian /etc/default/isc-dhcp-relay menjadi
-  ```
-  SERVERS="10.4.3.2"
-  INTERFACES="eth1 eth2 eth3 eth4 eth5 eth6"
-  OPTIONS=""
-  ```
-  - Mengaktifkan IP forwarding untuk meneruskan paket antar antarmuka jaringan pada bagian /etc/sysctl.conf menjadi
-    ```
-    net.ipv4.ip_forward=1
-    ```
-  - Merestart layanan DHCP relay dengan `service isc-dhcp-relay restart`
-  2. Pada **SEVERUS SNAPE** Sebagai DHCP Server,
-  - Pertama, menentukan nameserver dan memperbarui paket dan menginstal DHCP server:
-```
-echo nameserver 192.168.122.1 > /etc/resolv.conf
-apt-get update
-apt-get install bind9 -y
-```
-  - Mengedit file konfigurasi antarmuka DHCP server pada /etc/default/isc-dhcp-server menjadi
-    ` INTERFACESv4="eth0"`
-  - Mengedit file konfigurasi DHCP:
-```
-# Range IP untuk Draco Malfoy dan Astoria Greengrass
-subnet 10.4.2.0 netmask 255.255.255.0 {
-    range 10.4.2.64 10.4.2.65;  # Draco Malfoy
-    range 10.4.2.100 10.4.2.101; # Astoria Greengrass
-
-    option routers 10.4.2.1;
-    option broadcast-address 10.4.2.255;
-    option domain-name-servers 10.4.3.3;
-
-    default-lease-time 300;  
-    max-lease-time 6000;
-}
-```
-Dalam subnet ini, Draco Malfoy akan mendapatkan rentang IP 10.4.2.64 - 10.4.2.65, sedangkan Astoria Greengrass mendapat rentang IP 10.4.2.100 - 10.4.2.101. Parameter lain seperti routers, broadcast-address, dan domain-name-servers juga diatur untuk subnet ini. Dan sudah ditambah untuk menetapkan batasan waktu untuk DHCP server pada switch 2 selama 5 menit. 
-
-```
-# Range IP untuk Hannah Abbott dan Susan Bones
-     subnet 10.4.5.0 netmask 255.255.255.0 {
-    range 10.4.5.50 10.4.5.51;  
-    range 10.4.5.155 10.4.5.156;  
-
-    option routers 10.4.5.1;
-    option broadcast-address 10.4.5.255;
-    option domain-name-servers 10.4.3.3;
-
-    default-lease-time 1200;  
-    max-lease-time 6000;
-}   
-```
-Di subnet ini, Hannah Abbott akan mendapatkan rentang IP 10.4.5.50 - 10.4.5.51, dan Susan Bones akan menerima IP dalam rentang 10.4.5.155 - 10.4.5.156. Konfigurasi DHCP diatur serupa dengan subnet lain. Dan sudah ditambah untuk menetapkan batasan waktu untuk DHCP server pada switch 5 selama 20 menit.
-- Merestart layanan DHCP server dengan `service isc-dhcp-server restart`
 <br>
 
-## Soal 3 & 4
+## VLSM
 
-> Khusus untuk HermioneGranger yang berada di switch 1 mendapat range IP dari
-[Prefix IP].1.10 - [Prefix IP].1.15 dan [Prefix IP].1.20 - [Prefix IP].1.25
+### Tree
 
-> Khusus untuk ChoChang yang berada di switch 6 mendapat range IP dari 
-[Prefix IP].6.10 - [Prefix IP].6.15 dan [Prefix IP].6.20 - [Prefix IP].6.25
+- Tree image <br> (https://miro.com/welcomeonboard/M1dLTGQyVEQ3RkozS0pRL3ptN3FQUnp2N2krMHJtSCtNVXBrWjJxaGM5cnlDRWh3aytoQWVrZ0NaOE9IdFFzK0d0dFVLTS9YNFdUakwzQk1NenNMVG92OXE1S0FIQWdJWjJxaUxTM2ZXUlVEQ0Era2UwMEhxYitSdE1ZcnFRTmshZQ==?share_link_id=675352500835)  <br>
 
-**Answer:**
+<img width="1016" alt="Screenshot 2024-11-18 at 20 13 54" src="https://github.com/user-attachments/assets/6ea31fe8-2002-4ee5-90e8-c0600aab7e4d">
 
-- Screenshot <br>
-HermioneGranger mendapatkan IP '10.4.1.10' <br>
-![WhatsApp Image 2024-10-23 at 18 19 57](https://github.com/user-attachments/assets/0c9b4185-dceb-49a6-8da4-7b395da333c1) <br>
-ChoChang mendapatkan IP '10.4.6.10' <br>
-![WhatsApp Image 2024-10-23 at 18 23 52](https://github.com/user-attachments/assets/e42fa7ce-404d-44c6-9a89-b99dd2631265) <br>
+- IP distribution table
+<img width="656" alt="Screenshot 2024-11-18 at 20 22 40" src="https://github.com/user-attachments/assets/7df21678-870c-467e-b698-6dd910631937">
 
-- Configuration & Explanation
-  - Mengedit file konfigurasi DHCP:
-  ```
-    subnet 10.4.1.0 netmask 255.255.255.0 {
-    range 10.4.1.10 10.4.1.15;
-    range 10.4.1.20 10.4.1.25;
 
-    option routers 10.4.1.1;
-    option broadcast-address 10.4.1.255;
-    option domain-name-servers 10.4.3.3;
+### Subnetting (If you use GNS3)
 
-    default-lease-time 600;  # Switch 6: 10 minutes
-    max-lease-time 6000;
-   }
-  ```
-  Di subnet ini, Hermione Granger akan mendapatkan rentang IP, 10.4.1.10 - 10.4.1.15 dan 10.4.1.20 - 10.4.1.25. Konfigurasi DHCP diatur serupa dengan subnet lain, yaitu memberikan IP dalam dua rentang yang ditentukan untuk perangkat yang terhubung ke Switch 1. Dan sudah ditambah untuk menetapkan batasan waktu untuk DHCP server pada Switch 1 memiliki batas waktu 10 menit dengan waktu maksimal 100 menit.
-```
-subnet 10.4.6.0 netmask 255.255.255.0 {
-    range 10.4.6.10 10.4.6.15;  # Cho Chang
-    range 10.4.6.20 10.4.6.25;  # Cho Chang
+Configuration to every router, client, and server for subnetting.
 
-    option routers 10.4.6.1;
-    option broadcast-address 10.4.6.255;
-    option domain-name-servers 10.4.3.3;
+- Kamachi:
 
-    default-lease-time 600;  # Lease 10 minutes
-    max-lease-time 6000;
-}
-```
-Di subnet ini, Cho Chang akan menerima IP dalam rentang 10.4.6.10 - 10.4.6.15 dan 10.4.6.20 - 10.4.6.25. Konfigurasi DHCP diatur serupa dengan subnet lain, yaitu menetapkan dua rentang IP untuk perangkat yang terhubung ke Switch 6. Dan sudah ditambah untuk menetapkan batasan waktu untuk DHCP server pada Switch 6 memiliki batas waktu 10 menit dengan waktu maksimal 100 menit.
-- Merestart layanan DHCP server `service isc-dhcp-server restart`
-<br>
-
-## Soal 5
-
-> Memastikan bahwa semua CLIENT, HermioneGranger, dan ChoChang harus menggunakan konfigurasi dari DHCP server, menerima DNS dari Professor McGonagall dan dapat akses internet. Khusus untuk HermioneGranger dan ChoChang mendapatkan IP Statis dari DHCP dengan 10.1.x.14. hint: fixed address
-
-**Answer:**
-
-- Screenshot
-HermioneGranger mendapatkan IP '10.4.1.14' <br>
-![WhatsApp Image 2024-10-24 at 19 46 32](https://github.com/user-attachments/assets/44b0f531-2e45-4aca-a1c6-7e45ab1b325a)
-ChoChang mendapatkan IP '10.4.6.14' <br>
-![WhatsApp Image 2024-10-24 at 19 46 57](https://github.com/user-attachments/assets/eb1c5d8e-9ab0-4f62-b01d-cd864a6818d1)
-
-- Configuration & Explanation
-  1. Pada **HermioneGranger**, lihat link/ether pada eth0 melalui `ip a` lalu salin ke dalam `nano /etc/network/interfaces` untuk fiksasi address, maka dihasilkan
 ```
 auto eth0
 iface eth0 inet dhcp
-hwaddress ether a2:5f:97:4c:8e:f3
+
+auto eth1
+iface eth0 inet static
+address 10.4.0.1
+netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+address 10.4.0.13
+netmask 255.255.255.252
+
+auto eth3
+iface eth3 inet static
+address 10.4.0.65
+netmask 255.255.255.252
+
+auto eth4
+iface eth4 inet static
+address 10.4.0.85
+netmask 255.255.255.252
+
+auto eth5
+iface eth5 inet static
+address 10.4.0.93
+netmask 255.255.255.252
 ```
-2. Pada **ChoChang**, lihat link/ether pada eth0 melalui `ip a` lalu salin ke dalam `nano /etc/network/interfaces` untuk fiksasi address, maka dihasilkan
+
+- Fiamma:
+
 ```
 auto eth0
-iface eth0 inet dhcp
-hwaddress ether 9e:f4:36:0c:a0:54
+iface eth0 inet static
+address 10.4.0.94
+netmask 255.255.255.252
+gateway 10.4.0.93
 ```
-3. Pada **Severus Snape**,
-  - Mengedit dan menambahkan file konfigurasi DHCP pada `nano /etc/dhcp/dhcpd.conf`
-```
-host HermioneGranger {
-	hardware ethernet a2:5f:97:4c:8e:f3;
-	fixed-address 10.4.1.14;
-}
 
-host ChoChang{
-	hardware ethernet 9e:f4:36:0c:a0:54;
-	fixed-address 10.4.6.14;
-}
+- GoldenDawn:
+
 ```
-- Merestart layanan DHCP server `service isc-dhcp-server restart`
+auto eth0
+iface eth0 inet static
+address 10.4.0.86
+netmask 255.255.255.252
+gateway 10.4.0.85
+
+auto eth1
+iface eth1 inet static
+address 10.4.8.1
+netmask 255.255.248.0
+
+auto eth2
+iface eth2 inet static
+address 10.4.0.89
+netmask 255.255.255.252
+```
+
+- Necessarius:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.66
+netmask 255.255.255.252
+gateway 10.4.0.65
+
+auto eth1
+iface eth1 inet static
+address 10.4.0.69
+netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+address 10.4.0.73
+netmask 255.255.255.252
+```
+
+- Alice:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.14
+netmask 255.255.255.252
+gateway 10.4.0.13
+
+auto eth1
+iface eth1 inet static
+address 10.4.2.1
+netmask 255.255.254.0
+```
+
+- Kihara:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.2
+netmask 255.255.255.252
+gateway 10.4.0.1
+
+auto eth1
+iface eth1 inet static
+address 10.4.0.5
+netmask 255.255.255.252
+
+auto eth2
+iface eth2 inet static
+address 10.4.0.9
+netmask 255.255.255.252
+```
+
+- Vento:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.4.3
+netmask 255.255.254.0
+gateway 10.4.4.1
+```
+
+- Terra:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.98
+netmask 255.255.255.224
+gateway 10.4.0.97
+```
+
+- Acqua:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.4.2
+netmask 255.255.254.0
+gateway 10.4.4.1
+```
+
+- Aiwass:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.8.2
+netmask 255.255.248.0
+gateway 10.4.8.1
+```
+
+- Aleister:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.8.3
+netmask 255.255.248.0
+gateway 10.4.8.1
+```
+
+- Mathers:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.90
+netmask 255.255.255.252
+gateway 10.4.0.89
+```
+
+- Coronzon:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.74
+netmask  255.255.255.252
+gateway 10.4.0.73
+```
+
+- Elizard:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.82
+netmask 255.255.255.252
+gateway 10.4.0.81
+```
+
+- Index:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.78
+netmask  255.255.255.252
+gateway 10.4.0.77
+
+#A14
+auto eth1
+iface eth1 inet static
+address 10.4.0.17
+netmask  255.255.255.240
+```
+
+- Magnus:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.18
+netmask  255.255.255.240
+gateway 10.4.0.17
+```
+
+- Gremlin:
+
+ ```
+auto eth0
+iface eth0 inet static
+address 10.4.0.70
+netmask 255.255.255.252
+gateway 10.4.0.69
+
+auto eth1
+iface eth1 inet static
+address 10.4.6.1
+netmask 255.255.254.0
+ ```
+
+- Thor:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.6.3
+netmask  255.255.254.0
+gateway 10.4.6.1
+```
+
+- Othinus:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.6.2
+netmask  255.255.254.0
+gateway 10.4.6.1
+```
+
+- LastOrder:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.2.3
+netmask 255.255.254.0
+gateway 10.4.2.1
+
+auto eth1
+iface eth1 inet static
+address 10.4.1.129
+netmask 255.255.255.128
+```
+
+- Leivinia:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.1.130
+netmask 255.255.255.128
+gateway 10.4.1.129
+```
+
+- Fuze:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.2.2
+netmask 255.255.254.0
+gateway 10.4.2.1
+```
+
+- Accel:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.10
+netmask 255.255.255.252
+gateway 10.4.0.9
+
+auto eth1
+iface eth1 inet static
+address 10.4.0.129
+netmask 255.255.255.128
+```
+
+- Railgun:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.131
+netmask 255.255.255.128
+gateway 10.4.0.129
+
+auto eth1
+iface eth1 inet static
+address 10.4.0.33
+netmask 255.255.255.224
+```
+
+- MeltDowner:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.34
+netmask 255.255.255.224
+gateway 10.4.0.33
+```
+
+- MentalOut:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.35
+netmask 255.255.255.224
+gateway 10.4.0.33
+```
+
+- DarkMatter:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.130
+netmask 255.255.255.128
+gateway 10.4.0.129
+```
+
+- Noukan:
+
+```
+auto eth0
+iface eth0 inet static
+address 10.4.0.6
+netmask 255.255.255.252
+gateway 10.4.0.5
+```
+
+### Routing
+
+Configuration to every router for routing.
+
+- Kamachi:
+
+```
+up route add -net 10.4.0.4 netmask 255.255.255.252 gw 10.4.0.2
+up route add -net 10.4.0.8 netmask 255.255.255.252 gw 10.4.0.2
+up route add -net 10.4.0.128 netmask 255.255.255.128 gw 10.4.0.2
+up route add -net 10.4.0.32 netmask 255.255.255.224 gw 10.4.0.2
+
+up route add -net 10.4.2.0 netmask 255.255.254.0 gw 10.4.0.14
+up route add -net 10.4.1.128 netmask 255.255.255.128 gw 10.4.0.14
+
+up route add -net 10.4.0.68 netmask 255.255.255.252 gw 10.4.0.66
+up route add -net 10.4.6.0 netmask 255.255.254.0 gw 10.4.0.66
+up route add -net 10.4.0.72 netmask 255.255.255.252 gw 10.4.0.66
+up route add -net 10.4.0.76 netmask 255.255.255.252 gw 10.4.0.66
+up route add -net 10.4.0.16 netmask 255.255.255.240 gw 10.4.0.66
+up route add -net 10.4.0.80 netmask 255.255.255.252 gw 10.4.0.66
+
+#GoldenDawn : A17, A18
+up route add -net 10.4.8.0 netmask 255.255.248.0 gw 10.4.0.86
+up route add -net 10.4.0.88 netmask 255.255.255.252 gw 10.4.0.86
+
+# Fiamma : A20, A21
+Up route add -net 10.4.4.0 netmask 255.255.254.0 gw 10.4.0.94
+Up route add -net 10.4.0.96 netmask 255.255.255.224 gw 10.4.0.94
+```
+
+- Fiamma:
+
+```
+up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.93
+up route add -net 10.4.0.96 netmask 255.255.255.224 gw 10.4.4.3
+```
+
+- GoldenDawn:
+
+```
+up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.85
+```
+
+- Necessarius:
+
+```
+up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.65
+
+up route add -net 10.4.6.0 netmask 255.255.254.0 gw 10.4.0.70
+
+up route add -net 10.4.0.76 netmask 255.255.255.252  gw 10.4.0.74
+up route add -net 10.4.0.16 netmask 255.255.255.240 gw 10.4.0.74
+up route add -net 10.4.0.80 netmask 255.255.255.252 gw 10.4.0.74  
+```
+
+- Alice:
+
+```
+up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.13
+up route add -net 10.4.1.128 netmask 255.255.255.128 gw 10.4.2.3
+```
+
+- Kihara:
+
+```
+up route add -net 10.4.0.128 netmask 255.255.255.128 gw 10.4.0.10
+up route add -net 10.4.0.32 netmask 255.255.255.224 gw 10.4.0.10
+up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.1
+```
+
+- Vento:
+
+  ```
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.4.1
+  ```
+
+- Coronzon:
+
+  ```
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.73
+  up route add -net 10.4.0.16 netmask 255.255.255.240 gw 10.4.0.78
+  ```
+
+- Index:
+
+  ```
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.77
+  ```
+
+- Gremlin:
+
+  ```
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.69
+  ```
+
+- LastOrder:
+
+  ```
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.2.1
+  ```
+
+- Accel:
+
+  ```
+  up route add -net 10.4.0.32 netmask 255.255.255.224 gw 10.4.0.131
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.9
+  ```
+
+- Railgun:
+
+  ```
+  up route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.4.0.129
+  ```
+
+### Testing
+
+- Client - client
+C: DarkMeter - MeltDowner
+<img width="692" alt="Screenshot 2024-11-18 at 21 17 24" src="https://github.com/user-attachments/assets/aca71912-443f-46a6-996f-1e8c9f080e8e">
+
+- Client - Server
+C: DarkMetter - MentalOut
+<img width="697" alt="Screenshot 2024-11-18 at 21 24 28" src="https://github.com/user-attachments/assets/ff0aa7f7-5241-430c-b09d-378152c485b0">
+
+- Client - Router
+C : DarkMeter - Railgun
+<img width="627" alt="Screenshot 2024-11-18 at 21 15 39" src="https://github.com/user-attachments/assets/832a72b6-0779-4634-bd49-faa580f11b78">
+
+- Server - Server
+C: Noukan - MentalOut
+<img width="612" alt="Screenshot 2024-11-18 at 21 21 08" src="https://github.com/user-attachments/assets/156d09d5-187e-4f90-b906-1620eee51a61">
+
+- Server - Router
+C: Elizard - Corozon
+<img width="619" alt="Screenshot 2024-11-18 at 21 22 11" src="https://github.com/user-attachments/assets/f10875f6-9bb3-4abd-9612-b3481db20e54">
+
+- Router - Router
+C: Kamachi - Kihara
+<img width="616" alt="Screenshot 2024-11-18 at 21 13 27" src="https://github.com/user-attachments/assets/b82fd4ad-5b54-4ea6-b76e-e25f1010018c">
+
 <br>
 
-## Soal 6
+## CIDR
 
-> Dimulai dari asrama Gryffindor yang menjadi PHP worker, mereka harus melakukan deployment untuk website berikut menggunakan PHP 7.4.
+### Tree
 
-**Answer:**
+- Tree image (https://miro.com/app/board/uXjVLEOxbRM=/?share_link_id=451151855279)
 
-- Screenshot
+  ![image](https://github.com/user-attachments/assets/73288da2-6ed6-47d8-88f3-6bebaac469e8)
 
-  `Put your screenshot in here`
+- IP distribution table
 
-- Configuration & Explanation
- - Pertama, menentukan nameserver dan memperbarui paket dan menginstal paket
-   ```
-	echo nameserver 192.168.122.1 > /etc/resolv.conf
-	apt-get update
-	apt-get install nginx -y
-	apt-get install wget -y
-	apt-get install unzip -y
-	apt-get install lynx -y
-	apt-get install apache2-utils -y
-	apt-get install php7.4-fpm php7.4-common php7.4-mysql php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-gd php7.4-xml php7.4-cli php7.4-zip -y
-   ```
-	- Mengunduh dan Mengekstrak Website, Website diunduh dalam format ZIP dari Google Drive :
- ```
-wget -O '/var/www/gryffindor.hogwarts.A03.com.zip' 'https://drive.google.com/uc?export=download&id=17R4Zcxm3emHq21WdMJzSfCxO8FHqvATM'
-unzip -o /var/www/gryffindor.hogwarts.A03.com.zip -d /var/www/
-rm /var/www/gryffindor.hogwarts.A03.com.zip
- ```
-Mengekstrak ke dalam direktori /var/www/ dan kemudian struktur direktori diatur agar berada di folder yang tepat :
-```
-mkdir /var/www/gryffindor.hogwarts.A03.com
-mv /var/www/php /var/www/gryffindor.hogwarts.A03.com/php
-mv /var/www/index.php /var/www/gryffindor.hogwarts.A03.com
-```
-  - Mengatur Hak Akses, agar user www-data (default user untuk Nginx) memiliki akses penuh ke direktori website :
-```
-chown -R www-data:www-data /var/www/gryffindor.hogwarts.A03.com
-chmod -R 755 /var/www/gryffindor.hogwarts.A03.com
-```
-- Membuat file konfigurasi Nginx untuk website:
-```
-cp /etc/nginx/sites-available/default /etc/nginx/sites-available/gryffindor.hogwarts.A03.com
-ln -s /etc/nginx/sites-available/gryffindor.hogwarts.A03.com /etc/nginx/sites-enabled/
-rm /etc/nginx/sites-enabled/default
-```
-- Mengonfigurasi virtual host untuk gryffindor.hogwarts.A03.com pada `/etc/nginx/sites-available/gryffindor.hogwarts.A03.com`
-```
-echo 'server {
-    listen 80;
-    server_name gryffindor.hogwarts.A03.com;
+  ![image](https://github.com/user-attachments/assets/b332a3f2-f870-44b3-8945-d52d39b5ba36)
 
-    root /var/www/gryffindor.hogwarts.A03.com;
-    index index.php index.html index.htm;
 
-    location / {
-        try_files $uri $uri/ /index.php?$query_string;
-    }
+### Subnet Merging Iteration
 
-    location ~ \.php$ {
-        include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        include fastcgi_params;
-    }
+---
 
-    error_log /var/log/nginx/error.log;
-    access_log /var/log/nginx/access.log;
-}' > /etc/nginx/sites-available/gryffindor.hogwarts.A03.com
-```
-- Start PHP-FPM dan Restart Nginx
-```
-service php7.4-fpm start
-service nginx restart
-```
-- Menambahkan entri ke file hosts `nano /etc/hosts` agar domain gryffindor.hogwarts.A03.com dapat diakses melalui localhost dengan `127.0.0.1 gryffindor.hogwarts.A03.com`
-- Menggunakan browser berbasis teks lynx untuk memverifikasi bahwa website sudah berjalan `lynx localhost`
+### Iterasi 1
+| ID   | Value | Depth |
+|------|-------|-------|
+| A1   | 30    | 1     |
+| A2   | 23    | 2     |
+| A3   | 27    | 3     |
+| A4   | 30    | 1     |
+| A5   | 21    | 2     |
+| A6   | 30    | 2     |
+| A7   | 30    | 1     |
+| A8   | 30    | 2     |
+| A9   | 30    | 3     |
+| A10  | 30    | 3     |
+| A11  | 28    | 4     |
+| A12  | 30    | 2     |
+| A13  | 23    | 3     |
+| A14  | 30    | 1     |
+| A15  | 23    | 2     |
+| A16  | 25    | 3     |
+| A17  | 30    | 1     |
+| A18  | 30    | 2     |
+| A19  | 30    | 2     |
+| A20  | 25    | 3     |
+| A21  | 27    | 4     |
+
+**Terpanjang**: A11, A21  
+
+**Check Sibling**: ~
+
+**Transformasi**:  
+- A21 / 27 * A20 / 25 = B1 / 24  
+- A11 / 28 * A10 / 30 = B2 / 27  
+
+---
+
+### Iterasi 2
+| ID   | Value | Depth |
+|------|-------|-------|
+| A1   | 30    | 1     |
+| A2   | 23    | 2     |
+| A3   | 27    | 3     |
+| A4   | 30    | 1     |
+| A5   | 21    | 2     |
+| A6   | 30    | 2     |
+| A7   | 30    | 1     |
+| A8   | 30    | 2     |
+| A9   | 30    | 3     |
+| B2   | 27    | 3     |
+| A12  | 30    | 2     |
+| A13  | 23    | 3     |
+| A14  | 30    | 1     |
+| A15  | 23    | 2     |
+| A16  | 25    | 3     |
+| A17  | 30    | 1     |
+| A18  | 30    | 2     |
+| A19  | 30    | 2     |
+| B1   | 24    | 3     |
+
+**Terpanjang**: A3, A9, B2, A13, A16, B1 
+
+**Check Sibling**: A9 B2 
+
+**Transformasi**:  
+- A9 / 30 * B2 / 27 = C1 / 26  
+
+---
+
+### Iterasi 3
+| ID   | Value | Depth |
+|------|-------|-------|
+| A1   | 30    | 1     |
+| A2   | 23    | 2     |
+| A3   | 27    | 3     |
+| A4   | 30    | 1     |
+| A5   | 21    | 2     |
+| A6   | 30    | 2     |
+| A7   | 30    | 1     |
+| A8   | 30    | 2     |
+| C1   | 26    | 3     |
+| A12  | 30    | 2     |
+| A13  | 23    | 3     |
+| A14  | 30    | 1     |
+| A15  | 23    | 2     |
+| A16  | 25    | 3     |
+| A17  | 30    | 1     |
+| A18  | 30    | 2     |
+| A19  | 30    | 2     |
+| B1   | 24    | 3     |
+
+**Terpanjang**: A3, C1, A13, A16, B1
+
+**Check Sibling**: ~
+
+**Transformasi**:  
+- A3 / 27 * A2 / 23 = D1 / 22  
+- C1 / 26 * A8 / 30 = D2 / 25  
+- A13 / 23 * A12 / 30 = D3 / 22  
+- A16 / 25 * A15 / 23 = D4 / 22  
+- B1 / 24 * A19 / 30 = D5 / 23  
+
+---
+
+### Iterasi 4
+| ID   | Value | Depth |
+|------|-------|-------|
+| A1   | 30    | 1     |
+| D1   | 22    | 2     |
+| A4   | 30    | 1     |
+| A5   | 21    | 2     |
+| A6   | 30    | 2     |
+| A7   | 30    | 1     |
+| D2   | 25    | 2     |
+| D3   | 22    | 2     |
+| A14  | 30    | 1     |
+| D4   | 22    | 2     |
+| A17  | 30    | 1     |
+| A18  | 30    | 2     |
+| D5   | 23    | 2     |
+
+**Terpanjang**: D1, A5, A6, D2, D3, D4, A18, D5 
+
+**Check Sibling**: A5 , A6 , D2 , D3 , A18 , D5
+
+**Transformasi**:  
+- A5 / 21 * A6 / 30 = E1 / 20  
+- D2 / 25 * D3 / 22 = E2 / 21  
+- A18 / 30 * D5 / 23 = E3 / 22  
+
+---
+
+### Iterasi 5
+| ID   | Value | Depth |
+|------|-------|-------|
+| A1   | 30    | 1     |
+| D1   | 22    | 2     |
+| A4   | 30    | 1     |
+| E1   | 20    | 2     |
+| A7   | 30    | 1     |
+| E2   | 21    | 2     |
+| A14  | 30    | 1     |
+| D4   | 22    | 2     |
+| A17  | 30    | 1     |
+| E3   | 22    | 2     |
+
+**Terpanjang**: D1, E1, E2, D4, E3 
+
+**Check Sibling**: ~
+
+**Transformasi**:  
+- D1 / 22 * A1 / 30 = F1 / 21  
+- E1 / 20 * A4 / 30 = F2 / 19  
+- E2 / 21 * A7 / 30 = F3 / 20  
+- D4 / 22 * A14 / 30 = F4 / 21  
+- E3 / 22 * A17 / 30 = F5 / 21  
+
+---
+
+### Iterasi 6
+| ID   | Value | Depth |
+|------|-------|-------|
+| F1   | 21    | 1     |
+| F2   | 19    | 1     |
+| F3   | 20    | 1     |
+| F4   | 21    | 1     |
+| F5   | 21    | 1     |
+
+**Terpanjang**: F1, F2, F3, F4, F5 
+
+**Check Sibling**: F1 , F2 , F3 , F4 , F5
+
+**Transformasi**:  
+- F1 / 21 * F2 / 19 = G1 / 18  
+- F3 / 20 * F4 / 21 = G2 / 19  
+
+---
+
+### Iterasi 7
+| ID   | Value | Depth |
+|------|-------|-------|
+| G1   | 18    | 1     |
+| G2   | 19    | 1     |
+| F5   | 21    | 1     |
+
+**Terpanjang**: G1, G2, F5 
+
+**Check Sibling**: G1 , G2 , F5
+
+**Transformasi**:  
+- G2 / 19 * F5 / 21 = H1 / 18  
+
+---
+
+### Iterasi 8
+| ID   | Value | Depth |
+|------|-------|-------|
+| G1   | 18    | 1     |
+| H1   | 18    | 1     |
+
+**Terpanjang**: G1, H1  
+
+**Check Sibling**: G1 , H1
+
+**Transformasi**:  
+- G1 / 18 * H1 / 18 = I1 / 17  
+
+---
+
+### Iterasi 9
+| ID   | Value | Depth |
+|------|-------|-------|
+| I1   | 17    | 1     |
+
+**Root**: / 17  
+
+--- 
+
+### Subnetting (If you use CPT)
+
+- Link video
+  https://youtu.be/5UlLv_aMML4
+
+### Routing
+
+Configuration to every router for routing.
+
+- Kamachi:
   
-<br>
+  ![image](https://github.com/user-attachments/assets/40c1feb9-57e9-4666-8af2-fe7fcadd2fb5)
+  ![image](https://github.com/user-attachments/assets/4fffc053-76aa-4389-9fbd-df9a00fa67c5)
 
-## Soal 7
+- Fiamma:
+  
+  ![image](https://github.com/user-attachments/assets/5401ef60-81bd-4b06-bec4-3cae67aa5aa4)
 
-> Khusus perlombaan ini, Voldemort sudah jinak dan dia menjadi load balancer untuk para penghuni asrama Gryffindor yang menjadi worker PHP. Aturlah agar Voldemort dapat membagi pekerjaan kepada worker PHP secara optimal. Sebagai pengetesan awal, terapkan algoritma round robin dan lakukan test index.php menggunakan apache benchmark dengan 1000 request dan 100 request/second. Lakukan test sebanyak 3 kali lalu hitung rata-rata dan standar deviasi dari time/request
+- GoldenDawn:
+  
+  ![image](https://github.com/user-attachments/assets/549ca79f-25cd-4605-945f-0537baafb354)
 
-> _Voldemort, who is now reformed, becomes the load balancer for the Gryffindor PHP workers. Optimize Voldemort to distribute tasks to the PHP workers. For the initial test, apply the round-robin algorithm and test it to the index.php page using Apache Benchmark with 1,000 requests and 100 requests/second. Do the test 3 times and calculate the mean and standard deviation of time/request._
+- Necessarius:
 
-**Answer:**
+  ![image](https://github.com/user-attachments/assets/492c2f53-1fed-40f1-bd09-41ac9079673f)
 
-- Screenshot
+- Alice:
+  
+  ![image](https://github.com/user-attachments/assets/6b6ec42c-3863-422f-84c3-3a757afd8712)
 
-  `Put your screenshot in here`
+- Kihara:
+  
+  ![image](https://github.com/user-attachments/assets/208265f1-da90-4519-b984-3857417cee9f)
 
-- Configuration
+- Vento:
+  
+  ![image](https://github.com/user-attachments/assets/e2818077-0aab-48e9-bf17-7352ef531b5a)
 
-  `Put your configuration in here`
+- Coronzon:
 
-- Explanation
+  ![image](https://github.com/user-attachments/assets/82100d2d-8e28-4582-9e3d-0555a7803394)
 
-  `Put your explanation in here`
+- Index:
 
-<br>
+  ![image](https://github.com/user-attachments/assets/4648ac53-e10c-4f7d-bca5-c7917750e61b)
 
-## Soal 8
+- Gremlin:
 
-> Dalam penilaian akhir tahun ini, dibutuhkan algoritma terbaik, cobalah tes 3 algoritma load balancer dengan menggunakan jmeter. Jmeter perlu melakukan login, akses home, dan terakhir logout. Lakukan test dengan 300 thread dan 3 sec ramp up period. Lakukan test sebanyak 3 kali per algoritma, lalu hitung rata-rata dan standar deviasi dari response time. (username: wingardium, password: leviosa)
+  ![image](https://github.com/user-attachments/assets/51b27222-f42b-42d2-8886-194e44b74540)
 
 
-> _For the final assessment, try three different load-balancing algorithms using JMeter with 300 threads and a 3-second ramp-up period. Jmeter have to be able to login, access homepage, and logout. Do the test 3 times for each algorithm, then calculate the mean and standard deviation of response time. (username: wingardium, password: leviosa)_
+- LastOrder:
 
-**Answer:**
+  ![image](https://github.com/user-attachments/assets/c09ce760-0558-43e6-9696-c0851e5845e3)
 
-- Screenshot
+- Accel:
 
-  `Put your screenshot in here`
+  ![image](https://github.com/user-attachments/assets/3abc3510-af4e-4e33-ba1b-8b4a54332326)
 
-- Configuration
+- Railgun:
 
-  `Put your configuration in here`
+  ![image](https://github.com/user-attachments/assets/420c3e7d-1ea8-45d3-9233-a0cce238ccda)
 
-- Explanation
 
-  `Put your explanation in here`
+### Testing
 
-<br>
+- Client - client
 
-## Soal 9
+  ![image](https://github.com/user-attachments/assets/17503292-fc6d-468d-be94-547677b071f0)
 
-> Tidak semua IP dapat akses asrama Gryffindor melalui IP Load balancer Voldemort. Untuk itu, berikan akses pada load balancer Voldemort. Autentikasi akan memerlukan username: “jarkom” dan password: “modul3”. Simpan file autentikasi pada  /etc/nginx/secretchamber 
+- Client - Server
 
-> _Not all IPs can access Gryffindor's house through Voldemort’s load balancer. Grant access to the Voldemort load balancer. Authentication will require username: “jarkom” and password: “modul3”. Save the authentication file in /etc/nginx/secretchamber._
+  ![image](https://github.com/user-attachments/assets/7ecf3cfe-3bef-44a5-8752-0865c1e42e3b)
 
-**Answer:**
+- Client - Router
 
-- Screenshot
+  ![image](https://github.com/user-attachments/assets/043d3e46-2700-4aca-8a43-eb4fb2a876c3)
 
-  `Put your screenshot in here`
+- Server - Server
 
-- Configuration
+  ![image](https://github.com/user-attachments/assets/b38aeb97-aba1-43c8-a11c-498c607f5363)
 
-  `Put your configuration in here`
+- Server - Router
 
-- Explanation
+  ![image](https://github.com/user-attachments/assets/8270f163-c608-41fe-b7cf-b5a33ca7edbd)
 
-  `Put your explanation in here`
 
-<br>
+- Router - Router
 
-## Soal 10
-
-> Setelah menambahkan autentikasi ke Gryffindor, coba testing ulang dengan menggunakan JMeter (algoritma round robin) serta skenario, thread, dan ramp up period yang sama seperti no 8 (300 thread, 3 sec ramp up period, login-home-logout). Kali ini, coba juga jumlah worker yang berbeda: 3 worker, 2 worker, dan 1 worker. 
-
-> _After adding authentication to Gryffindor, retest using JMeter (round-robin algorithm) with the same scenario, thread, and ramp up period as number 8 (300 thread, 3 sec ramp up period, login-home-logout). This time, test with different numbers of workers: 3 workers, 2 workers, and 1 worker._
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 11
-
-> Hogwarts juga bekerjasama dengan ITS dalam perlombaan ini. Untuk itu, setiap request pada Voldemort yang mengandung /informatika pada akhir url akan di proxy passing menuju halaman https://www.its.ac.id/informatika/id/beranda/ 
-
-> _Hogwarts has also partnered with ITS for this competition. Any request to Voldemort containing /informatika at the end of the URL should be proxied to the page at https://www.its.ac.id/informatika/id/beranda/._
-
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 12
-
-> Selain butuh autentikasi dalam pengaksesan asrama Gryffindor melalui LB Voldemort, juga perlu dibatasi dengan pembatasan IP.  LB Voldemort hanya boleh diakses oleh client dengan IP [Prefix IP].2.64, [Prefix IP].2.100, [Prefix IP].5.50, dan [Prefix IP].5.155. hint: (fixed in dulu clientnya) 
-
-
-> _In addition to requiring authentication for access to Gryffindor through Voldemort’s load balancer, IP restrictions also need to be enforced. Voldemort's load balancer can only be accessed by clients with IPs: [Prefix IP].2.64, [Prefix IP].2.100, [Prefix IP].5.50, and [Prefix IP].5.155. (hint: fixed client IPs first)._
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 13
-
-> Pengaturan database yang dibutuhkan dalam perlombaan ini wajib diatur di Hagrid. Pastikan pengaturan database tersebut dapat diakses oleh Lunalovegood, FiliusFlitwick, dan ChoChang dengan menggunakan username: kelompokyyy dan password: passwordyyy 
-
-> _Database setup for this competition is managed by Hagrid. Ensure that this database can be accessed by LunaLovegood, FiliusFlitwick, and ChoChang using the username: "kelompokyyy" and password: "passwordyyy”_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 14
-
-> Selain itu, untuk Lunalovegood, FiliusFlitwick, dan ChoChang memiliki website sesuai dengan https://github.com/lodaogos/laravel-jarkom-modul-3/tree/main  berikut. Jangan lupa melakukan instalasi PHP8.0 dan Composer! Pastikan database di Hagrid sudah ada isinya sekarang dan server Laravel sudah running di localhost!
-
-> _Additionally, LunaLovegood, FiliusFlitwick, and ChoChang have websites following this GitHub link: Laravel Jarkom Modul 3. Install PHP 8.0 and Composer! Make sure Hagrid's data storage is populated, and the Laravel servers are running on localhost!_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 15
-
-> Lakukan testing endpoint /register sebanyak 100 request dengan 10 request/second di salah satu worker menggunakan apache benchmark dari SusanBones! Kenapa failed 99x? Jelaskan! 
-
-> _Test the /register endpoint with 100 requests and 10 requests per second on one of the workers using Apache Benchmark from SusanBones! Why did 99 tests fail? Explain!_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 16
-
-> Lakukan juga testing pada endpoint /login sebanyak 100 request dengan 10 request/second di salah satu worker menggunakan apache benchmark dari SusanBones! Dapatkan token melalui responsenya juga!
-
-> _Test the /login endpoint with 100 requests and 10 requests per second on one of the workers using Apache Benchmark from SusanBones! Collect the token from the response!_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 17
-
-> Coba testing pada endpont /me sebanyak 100 request dengan 10 request/second di salah satu worker menggunakan apache benchmark dari SusanBones! Periksa responsenya apakah sudah sesuai dengan yang diloginkan? 
-
-> _Test the /me endpoint with 100 requests and 10 requests per second on one of the workers using Apache Benchmark from SusanBones! Check if the response matches the logged-in user!_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 18
-
-> Mendekati tugas akhir perlombaan ini, mari seimbangkan kekuatan LunaLovegood, FiliusFlitwick, dan ChoChang untuk bekerja sama secara adil! Buatkan load balancer Laravel dengan Dementor dan implementasikan Proxy Bind untuk mengaitkan IP dari ketiga worker tersebut!
-
-> _As the competition nears its end, balance the workload of LunaLovegood, FiliusFlitwick, and ChoChang! Create a Laravel load balancer using Dementor and implement Proxy Bind to link the IPs of the three workers!_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 19
-
-> Untuk menguatkan para Laravel Worker, coba implementasikan PHP-FPM pada LunaLovegood, FiliusFlitwick, dan ChoChang. Untuk testing kinerja naikkan: 
-pm.max_children
-pm.start_servers
-pm.min_spare_servers
-pm.max_spare_servers
-sebanyak tiga percobaan dan lakukan analisis testing menggunakan apache benchmark sebanyak 100 request dengan 10 request/second atau menggunakan jmeter dengan 100 threads! (Pilih 1 metode testing)
-
-> _To strengthen the Laravel workers, implement PHP-FPM on LunaLovegood, FiliusFlitwick, and ChoChang. For performance testing, adjust: pm.max_children, pm.start_servers, pm.min_spare_servers, pm.max_spare_servers. Run the tests three times and analyze the performance by using Apache Benchmark with 100 requests at a rate of 10 requests per second or using JMeter with 100 threads! (Choose 1 testing method)_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
-
-<br>
-
-## Soal 20
-
-> Yey terakhir. Menurut Professor Dumbledore, sepertinya menggunakan PHP-FPM tidak cukup untuk meningkatkan performa worker-worker. Implementasikan Least-Conn pada Dementor. Lakukan analisis pada testing kinerja menggunakan apache benchmark sebanyak 100 request dengan 10 request/second atau menggunakan jmeter dengan 100 threads! (Pilih 1 metode testing)
-
-> _Finally, Professor Dumbledore suggests that PHP-FPM might not be enough to improve the workers' performance. Implement the Least-Conn algorithm on Dementor. Analyze the performance by using Apache Benchmark with 100 requests at a rate of 10 requests per second or using JMeter with 100 threads! (Choose 1 testing method)_
-
-**Answer:**
-
-- Screenshot
-
-  `Put your screenshot in here`
-
-- Configuration
-
-  `Put your configuration in here`
-
-- Explanation
-
-  `Put your explanation in here`
+  ![image](https://github.com/user-attachments/assets/f9b075be-82b7-48f5-8ac1-d4e203f7f5fb)
 
 <br>
   
 ## Problems
+
+Modulnya terkadang ambigu penjelasaknnya
+
+<br>
 
 ## Revisions (if any)
